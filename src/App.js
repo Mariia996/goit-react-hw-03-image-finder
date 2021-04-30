@@ -1,14 +1,15 @@
-import React from 'react';
-import Searchbar from './Searchbar/Searchbar';
-import ImageGallery from './ImageGallery/ImageGallery';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <>
-      <Searchbar />
-      <ImageGallery />
-    </>
-  );
+import ImageSearchPage from './client/pixabayImages/pages/ImageSearchPage';
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <ImageSearchPage />
+      </>
+    )
+  }
 }
 
 export default App;
