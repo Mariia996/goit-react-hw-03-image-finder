@@ -16,6 +16,7 @@ class ImageSearchPage extends Component {
         images: [],
         loading: false,
         error: null,
+        page: 1,
         showModal: false,
         query: "",
     }
@@ -27,9 +28,9 @@ class ImageSearchPage extends Component {
     }
 
     componentDidUpdate() {
-        const { loading, query } = this.state;
+        const { loading, query, page } = this.state;
         if (loading) {
-            const imagesRequest = getAllImages(query);
+            const imagesRequest = getAllImages(query, page);
             imagesRequest
                 .then(({ data }) => {
                         this.setState(({ images }) => {
