@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { initialState } from './initialState';
 import { fields } from './fields';
 import styles from './Searchbar.module.css';
@@ -26,10 +27,6 @@ class Searchbar extends Component {
 
         return (<header className={styles.searchbar}>
             <form className={styles.searchForm} onSubmit={handleSubmit}>
-                <button type="submit" className={styles.searchFormButton}>
-                    <span className={styles.searchFormButtonLabel}>Search</span>
-                </button>
-
                 <input
                     onChange={handleChange}
                     name="query"
@@ -40,10 +37,21 @@ class Searchbar extends Component {
                     autoFocus
                     placeholder={fields.searchValue.placeholder}
                 />
+                 <button type="submit" className={styles.searchFormButton}>
+                    <span className={styles.searchFormButtonLabel}>Search</span>
+                </button>
             </form>
         </header>)
 
     }
+}
+
+Searchbar.defaultProps = {
+    query: "",
+}
+
+Searchbar.propTypes = {
+    query: PropTypes.string,
 }
 
 export default Searchbar;
